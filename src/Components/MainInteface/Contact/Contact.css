@@ -1,0 +1,130 @@
+.back {
+    background-image: linear-gradient(rgba(230, 230, 230, 0.194), rgba(230, 230, 230, 0.17)), url('../../Image/2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    background-attachment: fixed;
+}
+
+.container {
+    font-size: 14px;
+    width: 100%;
+    margin: 60px auto;
+    text-align: start;
+    font-weight: bold;
+    color: black;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.contact-box {
+    background: white;
+    display: flex;
+
+}
+
+@media (max-width:991px) {
+    .contact-box {
+        flex-direction: column;
+        background-size: cover;
+        background-position: center;
+
+    }
+}
+
+.contact-left {
+    flex-basis: 60%;
+    padding: 23px 60px;
+}
+
+
+
+.contact-right {
+    flex-basis: 40%;
+    padding: 40px;
+    background: #1c00b5;
+    color: white;
+
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+.container p {
+    margin-bottom: 10px;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.input-row .input-group {
+    flex-basis: 45%;
+}
+
+input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    padding-bottom: 5px;
+}
+
+textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    outline: none;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+label {
+    margin-bottom: 6px;
+    display: block;
+    color: #1c00b5;
+}
+
+#send {
+    background: #1c00b5;
+    width: 100px;
+    border: none;
+    outline: none;
+    color: white;
+    height: 30px;
+    border-radius: 35px;
+    margin-top: 20px;
+    box-shadow: 0px 5px 15px 0px rgba(6, 13, 53, 0.745);
+}
+
+.contact-left h3 {
+    color: #1c00b5;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.contact-right h3 {
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+tr td:first-child {
+    padding-right: 20px;
+}
+
+tr td {
+    padding-top: 20px;
+}
+
+
+@media screen and (max-width: 600px){
+    .container{
+        max-width: 100%;
+        margin-top: 60rem;
+    }
+    
+}

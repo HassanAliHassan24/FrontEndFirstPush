@@ -1,0 +1,51 @@
+.navbar{
+    background-color: darkblue;
+    color: white;
+    font-weight:bolder;
+    z-index: 3;
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 15px 20px gray;
+    
+    
+    
+}
+.nav-link{
+    color: white;
+    
+}
+
+
+.collapse{
+    justify-content: center;
+    align-items: center;
+}
+.sign-log{
+    justify-content: center;
+    align-items: center;
+}
+.nav-link:hover{
+    color: red;
+    text-decoration: none;
+    
+
+}
+/*@media screen and (max-width:200 ) {
+    .Navbar{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        justify-content: center;
+        align-items: center;
+    }
+    
+}
+
+.Navbar #signup{
+    margin-right: 1.2rem;
+
+} */

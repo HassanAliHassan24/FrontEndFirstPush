@@ -1,0 +1,82 @@
+.btnn{
+    border: 2px solid white;
+    color: white;
+    
+}
+.btnn:hover{
+    color: black;
+    background-color: red;
+}
+
+/* LOG IN FORM */
+.myform{
+    background-color: rgb(228, 222, 222);
+    width: 100%;
+}
+.login-form form{
+    background-color: rgb(228, 222, 222);
+    border: none;
+    /* margin: 50px; */
+    /* margin-top: 50px; */
+    width: 22.5rem;
+ 
+  
+
+}
+
+.login-form{
+    text-align: center;
+     
+}
+
+.login-form input{
+    width: 80%;
+    padding: 5px;
+    margin: 13px;
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 4px;
+}
+.login-form button{
+    width:81%;
+    padding: 8px;
+    text-align: center;
+    margin: 15px;
+    font-weight: bold;
+    background-color: darkblue;
+    border: red;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.login-form button:hover{
+    background-color: blue;
+    border-radius: 7px;
+    
+
+}
+.login-form h2{
+    font-weight: bold;
+}
+.login-form img{
+    width: 30%;
+    margin: 23px;
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: 50px;
+  }
+
+  .success-message {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+/* LOG IN FORM */

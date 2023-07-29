@@ -1,0 +1,149 @@
+.heading h3 {
+  color: rgba(255, 0, 0, 0.801);
+
+}
+
+.heading h3 {
+  margin-top: 4.3rem;
+  padding: 0.5rem;
+}
+
+.search-in {
+  width: 50%;
+  padding-top: 6px;
+  border-bottom-left-radius: 7px;
+  border-top-left-radius: 7px;
+  outline-style: auto;
+  
+
+
+
+}
+
+.search  {
+  justify-content: center;
+  align-items: center;
+}
+
+.btn1 {
+  background-color: gray;
+  border: 2px solid gray;
+  padding: 0.3%;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  color: white;
+
+}
+
+.search button:hover {
+  background-color: rgba(32, 29, 29, 0.76);
+
+}
+
+.card {
+  display: flex;
+  border: 2px solid darkblue;
+  width: 17rem;
+  padding: 2.4rem;
+  margin: 0.5rem;
+  background-color: darkblue;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (max-width:991px) {
+  .all-card{
+      background-position: center;
+      justify-content: center;
+      align-items: center;
+      padding: 2.4rem;
+      margin: 0.5rem;
+      
+      
+  }
+}
+
+.card:hover {
+  background-color: blue;
+}
+
+.all-card {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5rem;
+}
+
+.home {
+  display: flex;
+  padding: 1.5rem;
+  margin: 5rem;
+  background-color: darkblue;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  /* opacity: .7; */
+
+
+  gap: 1.5rem;
+  align-items: center;
+
+}
+
+.home .content {
+  flex: 1 1 40rem;
+  padding: 4.5rem;
+  text-align: center;
+
+}
+
+.home img {
+  flex-wrap: wrap;
+  width: 100%;
+  float: right;
+
+
+}
+@media (max-width:991px) {
+  .home{
+      background-position: center;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 2.5rem;
+      
+      
+  }
+}
+@media (max-width:991px) {
+  .image{
+      
+      flex-direction: column;
+      margin-top: -6rem;
+      
+  }
+}
+
+
+
+.btn2 {
+  color: black;
+  background-color: aqua;
+  padding: 10px;
+  border-radius: 7px;
+  margin-top: 15px;
+  font-weight: bold;
+
+}
+
+.background {
+  /* background-image: linear-gradient(rgba(230, 230, 230, 0.194), rgba(230, 230, 230, 0.17)), url('../../Image/2.jpg'); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  background-attachment: fixed;
+}
+
+.shadow {
+  box-shadow: 0px 5px 15px 0px rgba(6, 13, 53, 0.745);
+}

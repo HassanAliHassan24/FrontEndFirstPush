@@ -1,0 +1,102 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.all-about {
+    /* background-image: linear-gradient(rgba(230, 230, 230, 0.194), rgba(230, 230, 230, 0.17)), url('../../Image/2.jpg'); */
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    background-attachment: fixed;
+}
+
+.about-1 {
+    margin: 30px;
+    padding: 5px;
+
+}
+
+.about-1 h1 {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+}
+
+.about-1 p {
+    text-align: center;
+    padding: 3px;
+    color: black;
+}
+
+
+.about-item {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background-color: white;
+    padding: 80px, 30px;
+    box-shadow: 0 0 9px rgba(0, 0, 0, .6);
+}
+
+.about-item i {
+    font-size: 35px;
+
+    margin: 0;
+}
+
+#fa1{
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+
+.about-item h3 {
+    font-size: 25px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: red;
+}
+
+.about-item hr {
+    width: 46px;
+    height: 3px;
+    background-color: rgb(236, 13, 13);
+    margin: 0 auto;
+    border: none;
+}
+
+.about-item p {
+    margin-top: 20px;
+    padding: 15px;
+}
+
+.about-item:hover {
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    transition: .6s;
+}
+
+.about-item:hover i,
+.about-item:hover h3,
+.about-item:hover p {
+    color: #fff;
+}
+
+.about-item:hover hr {
+    background-color: #fff;
+}
+
+.about-item:hover i {
+    transform: translateY(-5px);
+}
+
+.about-item:hover i,
+.about-item:hover h3,
+.about-item:hover hr {
+    transition: all 400ms ease-in-out;
+
+}
