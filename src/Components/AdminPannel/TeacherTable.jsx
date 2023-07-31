@@ -7,6 +7,7 @@ import { Button } from 'antd';
 import {useParams } from 'react-router-dom';
 import AuthContext from '../../Context/AuthProvider';
 import { useContext } from 'react';
+import UpdateTeacher from '../RregistrationForm/UpdateTeacher';
 
 
 
@@ -58,7 +59,7 @@ const [selectedTeacher, setSelectedTeacher] = useState(null);
     Authorization: `Basic QWRtaW46QWRtaW4xMjM=`,
   };
     const response = await axios.get('http://localhost:9093/api/Teacher/getAll',{headers});
-
+    fetchTeacher();
     setTeacher(response.data)
 
   }
@@ -100,7 +101,7 @@ const [userRole, setUserRole] = useState('');
     { field: 'address', headerName: 'Address', width: 70 },
     { field: 'gender', headerName: 'Gender', width: 70 },
     { field: 'phoneNumber', headerName: 'Phone number', width: 110 },
-    // { field: 'password', headerName: 'Password', width: 80 },
+    { field: 'email', headerName: 'Email', width: 90 },
     { field: 'service_type', headerName: 'Service Type', width: 80 },
     { field: 'education_level', headerName: 'Education Level', width: 80 },
     { field: 'certificate_released_date', headerName: 'Certificate Released Date', width: 80 },
@@ -136,7 +137,9 @@ const [userRole, setUserRole] = useState('');
           </Button>
 
           <Button style={{backgroundColor:"green",color:"white"}} type=''>
-            Update
+          <UpdateTeacher
+              teacherId={params.id}
+              />
           </Button>
 
           </>
@@ -167,7 +170,7 @@ const [userRole, setUserRole] = useState('');
 
 
 
-const handleDelete = async (id) => {
+const handleDelete = async (teacherId) => {
   try{
 
     const token = localStorage.getItem('token');
@@ -177,7 +180,7 @@ const handleDelete = async (id) => {
       Authorization: `Basic QWRtaW46QWRtaW4xMjM=`,
     };
 
-    await axios.delete(`http://localhost:9093/api/Teacher/deleteTeacher/${id}`,{headers});
+    await axios.delete(`http://localhost:9093/api/Teacher/deleteTeacher/${teacherId}`,{headers});
     setIsDeleted(true);
     fetchTeacher('');
   }catch (error){

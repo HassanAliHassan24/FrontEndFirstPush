@@ -8,6 +8,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import ClientPopup from './ClientPoup';
 import View from '../RregistrationForm/View';
 import ClientEdit from '../RregistrationForm/ClientEdit';
+import UpdateUser from '../RregistrationForm/UpdateUser';
 
 
 export default function TotalUsers() {
@@ -67,7 +68,7 @@ export default function TotalUsers() {
     { field: 'address', headerName: 'Address', width: 80 },
     { field: 'gender', headerName: 'Gender', headerName: 'Gender', width: 80 },
     { field: 'phoneNumber', headerName: 'Phone number', width: 110 },
-    // { field: 'password', headerName: 'Password', width: 80 },
+    { field: 'email', headerName: 'Email', width: 90 },
 
 
 
@@ -106,11 +107,14 @@ export default function TotalUsers() {
             </Button>
 
 
-            <Link to="/Help">  <Button style={{ backgroundColor: "green", color: "white" }} type=''>
+           
+             <Button style={{ backgroundColor: "green", color: "white" }} type=''>
 
-              Update
+             <UpdateUser
+              uId={params.id}
+              />
             </Button>
-            </Link>
+          
 
 
           </div>

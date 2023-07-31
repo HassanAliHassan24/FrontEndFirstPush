@@ -8,6 +8,7 @@ import axios from 'axios';
 import react, { useState } from 'react'
 import CircularProgress from '@mui/material/CircularProgress';
 import Registration2 from '../RregistrationForm/Registration2';
+import Main from '../MainInteface/Main';
 
 
 function LoginPage() {
@@ -161,6 +162,13 @@ function LoginPage() {
                     <span>Don't have an account ?</span>
                     <Link to="/Registration2" element={Registration2}>
                         <a href="" style={{color:"blue"}}> Sig nUp </a>
+                        </Link>
+
+                  </div>
+                  <div>
+                    <span>Back</span>
+                    <Link to="/Main" element={Main}>
+                        <a href="" style={{color:"blue"}}> Home Page </a>
                         </Link>
 
                   </div>

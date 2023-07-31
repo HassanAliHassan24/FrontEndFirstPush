@@ -33,7 +33,7 @@ export default function ClientTable() {
       Authorization: `Basic QWRtaW46QWRtaW4xMjM=`,
     };
       const response = await axios.get('http://localhost:9093/api/Client/getAll',{headers});
-
+      fetchClient();
       setClient(response.data)
 
     }
@@ -43,7 +43,7 @@ export default function ClientTable() {
   }
 
   useEffect(() => {
-    fetchClient()
+    fetchClient();
   }, [])
 
 
@@ -77,7 +77,7 @@ export default function ClientTable() {
     { field: 'address', headerName: 'Address', width: 80 },
     { field: 'gender', headerName: 'Gender', headerName: 'Gender', width: 80 },
     { field: 'phoneNumber', headerName: 'Phone number', width: 110 },
-    // { field: 'password', headerName: 'Password', width: 90 },
+    { field: 'email', headerName: 'Email', width: 90 },
     { field: 'status', headerName: 'Status', width: 80 },
 
 

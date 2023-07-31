@@ -54,7 +54,7 @@ function CreatePolicy() {
 
     return (
         <div>
-            <h3 style={{ textAlign: "center", color: "blue" }}>ADD PROGRAM</h3>
+            <h3 style={{ textAlign: "center", color: "blue" }}>ADD POLICY</h3>
 
             <form style={{ overflow: "auto", scrollBehavior: "smooth", height: "auto" }} onSubmit={handleSubmit} class="row g-3">
 

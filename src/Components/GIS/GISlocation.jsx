@@ -21,20 +21,22 @@ const GISlocation = () => {
 
   return (
     <div>
+    
+      <MapContainer center={[-6.163, 39.198]} zoom={10} style={{ height: '580px',width:'100%' }}>
       <span
         style={{
           position: "absolute",
           top: "10px",
           left: "50px",
           zIndex: 1000,
-          backgroundColor: "white",
+          color:"red",
           padding: "5px",
-          fontSize: "20px"
+          fontSize: "20px",
+          backgroundColor:"lightblue"
         }}
       >
        Select a Teacher From Your Location
       </span>
-      <MapContainer center={[-6.163, 39.198]} zoom={10} style={{ height: '580px',width:'100%' }}>
         <span style={{ index: '3' }}>Select a Teacher From Your Location</span>
         <TileLayer
         

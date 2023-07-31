@@ -20,6 +20,8 @@ import Policy from './Components/AdminPannel/Policy';
 import RequireAuth from './Context/RequreAuth';
 import LoginPage from './Components/LoginForm/LoginPage';
 import Registration2 from './Components/RregistrationForm/Registration2';
+import Order from './Components/AdminPannel/Order';
+import ViewTeachersOnMap from './Components/AdminPannel/ViewTeacherOnMap';
 
 
 // import OurTeam from './Components/OurTeam/OurTeam';
@@ -29,12 +31,8 @@ import Registration2 from './Components/RregistrationForm/Registration2';
 function App() {
   return (
     <div className="App">
-
-     
-    
       
         <Routes>
-
 
           <Route path="/" element={<Main/>}/>
           <Route path="/Main" element={<Main/>}/>
@@ -44,6 +42,8 @@ function App() {
 
 
          <Route element={<RequireAuth/>}>
+         <Route path="/Order" element={<Order/>}/>
+         <Route path="/ViewTeachersOnMap" element={<ViewTeachersOnMap/>}/>
           <Route path="/UserInterface" element={<UserInterface/>}/>
           <Route path='/Dashboard' element={<Dashboard/>}/>
           <Route path='/Client' element={<Client/>}/>
@@ -58,21 +58,9 @@ function App() {
 
           </Route>
 
-          
-          
-          
-          
-          
         
         </Routes>
-       
-     
-
-
-     
-     
-      
-
+  
     </div>
   );
 }

@@ -1,83 +1,132 @@
-import React from 'react'
-import axios from 'axios'
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import Client from '../AdminPannel/Client';
+import { Modal, ButtonToolbar } from 'rsuite';
 
+export const UpdateUser = ({ uId }) => {
+    const [open, setOpen] = React.useState(false);
+    const [size, setSize] = React.useState();
+    const handleOpen = value => {
+        setSize(value);
+        setOpen(true);
+    };
+    const handleClose = () => setOpen(false);
 
-function ClientRegistration() {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [age, setAge] = useState('');
     const [userName, setUserName] = useState('');
-    const [password, setPassword] = useState('');
     const [address, setAddress] = useState('');
     const [gender, setGender] = useState('');
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
-    const [status, setStatus] = useState('');
-
     
-
-    const navigate = useNavigate();
-
+    const Navigate = useNavigate();
 
 
-    const handleSubmit = (event) => {
+    // Fetch
+    const fetchDataUpdate = async () => {
+        try {
+
+
+            const headers = {
+                Authorization: `Basic QWRtaW46QWRtaW4xMjM=`,
+              };
+
+            const response = await axios.get(`http://localhost:9093/api/User/getById/${uId}`,{headers});
+            setFirstName(response.data.firstName);
+            setLastName(response.data.lastName);
+            setAge(response.data.age);
+            setUserName(response.data.userName);
+            setAddress(response.data.address);
+            setGender(response.data.gender);
+            setEmail(response.data.email);
+            setPhoneNumber(response.data.phoneNumber);
+           
+            
+           
+        } catch (error) {
+            console.log('Error fetching data:', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchDataUpdate();
+    }, [uId]);
+    // End of Fetch
+
+   
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        setFirstName('');
-        setLastName('');
-        setAge('');
-        setUserName('');
-        setPassword('');
-        setAddress('');
-        setGender('');
-        setEmail('');
-        setPhoneNumber('');
-        setStatus('');
 
-        const requestData = {
+        // Prepare the form data
+        const formData = {
             firstName: firstName,
             lastName: lastName,
             age: age,
             userName: userName,
-            password: password,
             address: address,
             gender: gender,
             email: email,
             phoneNumber: phoneNumber,
-            status: status
+           
         };
+      
 
-       const headers = {
-        Authorization: `Basic QWRtaW46QWRtaW4xMjM=`,
-       }
+        try {
 
+            const headers = {
+                Authorization: `Basic QWRtaW46QWRtaW4xMjM=`,
+              };
+            // Send the PUT request to the correct API URL
+            const response = await axios.put(`http://localhost:9093/api/User/updateUser/${uId}`, formData,  {headers});
 
-        axios.post('http://localhost:9093/api/Client/register', requestData,{headers})
-        
+            // Handle the response
+            console.log(response.data);
+            setFirstName('');
+            setLastName('');
+            setAge('');
+            setUserName('');
+            setAddress('');
+            setGender('');
+            setEmail('');
+            setPhoneNumber('');
+          
 
-            .then(response => {
-                console.log("successfull added"); 
+          
 
-                console.log(response.data);
-                // navigate("")
-            })
-            .catch(error => {
-                console.error(error);
-            });
+            // Update fetched data
+            fetchDataUpdate();
+            handleClose()
+        } catch (error) {
+            // Handle the error
+            console.error(error);
+        }
     };
 
-
-
-
     return (
-        <div>
+        <>
+            <ButtonToolbar>
+                <span  onClick={() => handleOpen('md')}>
+                    Update
+                </span>
+            </ButtonToolbar>
+            <Modal size={size} open={open} onClose={handleClose}>
+                <Modal.Header>
+                    <Modal.Title>Update Service</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    {/* start form */}
+
+                    <div>
+            <h3 style={{ textAlign: "center", color: "blue" }}>UPDATE USER</h3>
            
 
-            <form style={{ overflow: "auto", scrollBehavior: "smooth", height: "auto",border:"2px solid darkblue",borderRadius:"10px",paddingBottom:"15px",boxShadow: "0 7px 25px 0 rgb(0, 0, 0)" }} onSubmit={handleSubmit} class="row g-3">
+            <form style={{ overflow: "auto", scrollBehavior: "smooth", height: "auto" }} onSubmit={handleSubmit} class="row g-3">
 
-            <h3 style={{ textAlign: "center", color: "blue" }}>CLIENT REGISTRATION FORM</h3>
+
 
                 <div class="col-md-4">
                     <label for="validationServerUsername" class="form-label">First Name</label>
@@ -94,7 +143,7 @@ function ClientRegistration() {
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-md-4">
                     <label for="validationServerUsername" class="form-label">Last Name</label>
                     <div class="input-group has-validation">
@@ -140,21 +189,7 @@ function ClientRegistration() {
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <label for="validationServerUsername" class="form-label">Password</label>
-                    <div class="input-group has-validation">
-                        {/* <span class="input-group-text" id="inputGroupPrepend3">@</span> */}
-                        <input
-                            type="password"
-                            value={password}
-                            onChange={event => setPassword(event.target.value)}
-                            placeholder="Password"
-                            class="form-control is-invalid" id="validationServerUsername" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required />
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                            Please choose a Password.
-                        </div>
-                    </div>
-                </div>
+               
                 <div class="col-md-4">
                     <label for="validationServerUsername" class="form-label">Address</label>
                     <div class="input-group has-validation">
@@ -194,7 +229,7 @@ function ClientRegistration() {
                         Please provide a your Email.
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-8">
                     <label for="validationServerUsername" class="form-label">Phone Number</label>
                     <div class="input-group has-validation">
                         {/* <span class="input-group-text" id="inputGroupPrepend3">@</span> */}
@@ -210,37 +245,58 @@ function ClientRegistration() {
                     </div>
                 </div>
 
-                <div class="col-md-12">
-                    <label for="validationServerUsername" class="form-label">Status</label>
-                    <div class="input-group has-validation">
-                        {/* <span class="input-group-text" id="inputGroupPrepend3">@</span> */}
-                        <input
-                            type="text"
-                            value={status}
-                            onChange={event => setStatus(event.target.value)}
-                            placeholder="Status"
-                            class="form-control is-invalid" id="validationServerUsername" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required />
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                            Please choose a Status.
-                        </div>
-                    </div>
-                </div>
+
+                {/* <div class="col-md-12">
+                    <label for="validationServerUsername" class="form-label">Select Role</label>
+                    <select
+                        value={roles}
+                        onChange={(e) => setRoles(e.target.value)}
+                        class="form-select is-invalid" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+                        <option selected disabled value="">Choose...</option>
+
+
+                        <option value="ROLE_ADMIN">ROLE_ADMIN</option>
+                        <option value="client">ROLE_CLIENT</option>
+                        <option value="teacher">ROLE_TEACHER</option>
+                    </select>
+                </div> */}
+
+                
+
+                
 
 
                 <div class="col-12">
-                   <button
+                    <button
+                             onClick={handleSubmit}
+
 
 
                         style={{ width: "100%", backgroundColor: "blue" }}
-                        class="btn btn-primary" type="submit">Submit form
+                        class="btn btn-primary" type="submit"
+
                        
-                        </button>
-                     
-                        
+                    >
+                       Submit                       
+
+                    </button>
+
+
                 </div>
             </form>
         </div>
-    )
-}
+  
 
-export default ClientRegistration
+                    {/* end form */}
+                </Modal.Body>
+                <Modal.Footer>
+                    {/* <Button  >
+                        Submit
+                    </Button> */}
+                </Modal.Footer>
+            </Modal>
+        </>
+    );
+};
+
+export default UpdateUser;

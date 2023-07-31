@@ -31,12 +31,13 @@ export const UpdateClient = ({ clientId }) => {
     const fetchDataUpdate = async () => {
         try {
 
-
+       
             const headers = {
                 Authorization: `Basic QWRtaW46QWRtaW4xMjM=`,
               };
 
             const response = await axios.get(`http://localhost:9093/api/Client/getById/${clientId}`,{headers});
+            console.log(clientId);
             setFirstName(response.data.firstName);
             setLastName(response.data.lastName);
             setAge(response.data.age);
@@ -128,7 +129,7 @@ export const UpdateClient = ({ clientId }) => {
                 <Modal.Body>
                     {/* start form */}
                     <div>
-            <h3 style={{ textAlign: "center", color: "blue" }}>CLIENT REGISTRATION FORM</h3>
+            <h3 style={{ textAlign: "center", color: "blue" }}>UPDATE CLIENT</h3>
 
             <form onSubmit={handleSubmit} class="row g-3">
 
@@ -230,11 +231,6 @@ export const UpdateClient = ({ clientId }) => {
                         value={gender}
                         onChange={(e) => setGender(e.target.value)}
                         class="form-select is-invalid" id="validationServer04" aria-describedby="validationServer04Feedback" required>
-
-
-
-
-
 
                         <option value="male">Male</option>
                         <option value="female">Female</option>

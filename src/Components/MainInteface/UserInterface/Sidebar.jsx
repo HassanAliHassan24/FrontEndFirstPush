@@ -11,6 +11,8 @@ import Help from '../../AdminPannel/Help';
 import { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../../Context/AuthProvider';
 import { LogoutOutlined, TeamOutlined, WindowsOutlined } from '@ant-design/icons';
+import ViewTeachersOnMap from '../../AdminPannel/ViewTeacherOnMap';
+import Order from '../../AdminPannel/Order';
 
 function Sidebar() {
 
@@ -70,7 +72,17 @@ function Sidebar() {
                             <i className='fa fa-chalkboard-teacher'><TeamOutlined /></i>
                             <Link to="/Teacher" element={Teacher}>
                                 <div style={{marginTop:"10px"}}>
-                                    Teachers
+                                    Teachers List
+                                </div>
+                            </Link>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i className='fa fa-cog'></i>
+                            <Link to="/ViewTeachersOnMap" element={ViewTeachersOnMap}>
+                                <div style={{marginTop:"10px"}}>
+                                View_On_Map
                                 </div>
                             </Link>
                         </a>
@@ -119,6 +131,17 @@ function Sidebar() {
                             <Link to="/Program" element={Settings}>
                                 <div style={{marginTop:"10px"}}>
                                     Programs Lists
+                                </div>
+                            </Link>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            <i className='fa fa-cog'></i>
+                            <Link to="/Order" element={Order}>
+                                <div style={{marginTop:"10px"}}>
+                                    Book Teacher
                                 </div>
                             </Link>
                         </a>

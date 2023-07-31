@@ -7,6 +7,7 @@ import { Button } from 'antd';
 import {useParams } from 'react-router-dom';
 import AuthContext from '../../Context/AuthProvider';
 import { useContext } from 'react';
+import UpdateProgram from '../RregistrationForm/UpdateProgram';
 
 
 
@@ -119,7 +120,9 @@ const [userRole, setUserRole] = useState('');
           </Button>
 
           <Button style={{backgroundColor:"green",color:"white"}} type=''>
-            Update
+          <UpdateProgram
+              programId={params.id}
+              />
           </Button>
 
           </>

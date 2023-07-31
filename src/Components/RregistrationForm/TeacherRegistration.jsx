@@ -60,7 +60,7 @@ function TeacherRegistration() {
 
 
 
-        axios.post('http://localhost:9093/api/Teacher/add', requestData,{headers})
+        axios.post('http://localhost:9093/api/Teacher/register', requestData,{headers})
             .then(response => {
                 console.log(response.data);
                 // navigate("/Client")
@@ -238,6 +238,17 @@ function TeacherRegistration() {
                         <div id="validationServerUsernameFeedback" class="invalid-feedback">
                             Please choose a Certificate Released Date.
                         </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <label for="validationServer03" class="form-label">Location</label>
+                    <input 
+                    
+                    
+                    type="text" class="form-control is-invalid" id="validationServer03" aria-describedby="validationServer03Feedback" required />
+                    <div id="validationServer03Feedback" class="invalid-feedback">
+                        Please provide a valid Location.
                     </div>
                 </div>
 

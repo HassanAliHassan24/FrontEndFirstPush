@@ -20,7 +20,7 @@ const Policypopup = () => {
       
     
         <Button style={{position:"absolute", top:"0.9rem",marginLeft:"55rem",backgroundColor:"darkblue",color:"white",width:"15%"}} size="md" onClick={() => handleOpen('md')}>
-          Create Pilicy
+          Create Policy
         </Button>
        
       </ButtonToolbar>

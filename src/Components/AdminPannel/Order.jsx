@@ -3,12 +3,13 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import AuthContext from '../../Context/AuthProvider';
+import GISlocation from '../GIS/GISlocation';
 import Sidebar from '../MainInteface/UserInterface/Sidebar'
 import Topbar from '../MainInteface/UserInterface/Topbar'
 import ClientTable from './ClientTable';
 // import ClientEdit from '../RregistrationForm/ClientEdit'
 
-function Admin() {
+function Order() {
 
   const [userRole, setUserRole] = useState('');
 
@@ -28,12 +29,12 @@ function Admin() {
 
      <Sidebar/>
      <div className="main-part">
-    {userRole === "ROLE_ADMIN" &&(
+   
       <>
       
-      {/* <ClientTable/> */}
+   <GISlocation/>
       </>
-      )}
+   
            
             
       </div>
@@ -42,4 +43,4 @@ function Admin() {
     )
 }
 
-export default Admin
+export default Order

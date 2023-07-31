@@ -15,6 +15,8 @@ import AuthContext from '../../Context/AuthProvider'
 import UserInterface from '../MainInteface/UserInterface/UserInterface';
 import { useContext } from 'react';
 import axios from 'axios';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 import CircularProgress from '@mui/material/CircularProgress';
 
@@ -33,7 +35,7 @@ export default function Login() {
     setOpen(false);
   };
 
-  const token = "QWRtaW46QWRtaW4xMjM="
+  // const token = "QWRtaW46QWRtaW4xMjM="
 
 
   // const history = useHistory();
@@ -53,6 +55,7 @@ export default function Login() {
     setLoading(true);
 
 
+
     try {
       await new Promise((resolve) => setTimeout(resolve, 2000));
       const response = await axios.post(
@@ -67,11 +70,11 @@ export default function Login() {
       // localStorage.setItem('auth', auth);
       setUsername('');
       setPassword('');
-       console.log(response.data);
+      console.log(response.data);
       // console.log(JSON.stringify(response?.data))
       const role = response?.data?.roles
       const userName = response?.data?.userName
-     
+
       setMessage('Login successful!');
       console.log(role)
       console.log(userName)
@@ -104,14 +107,15 @@ export default function Login() {
     }
 
 
-
-
-
   };
+
+
+
+
 
   return (
     <div >
-      <Button style={{ marginLeft: '5px',height:'35px' }} className='bton text-light bg-info text-light outline-light' variant="outlined" onClick={handleClickOpen}>
+      <Button style={{ marginLeft: '5px', height: '35px' }} className='bton text-light bg-info text-light outline-light' variant="outlined" onClick={handleClickOpen}>
         LOG IN
       </Button>
       <Dialog className='shadow'
@@ -168,7 +172,10 @@ export default function Login() {
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Password"
                       required
+
                     />
+
+                   
                   </div>
 
                   <div>
@@ -178,10 +185,10 @@ export default function Login() {
 
                   <div>
                     <button className='shadow-lg ' type='submit' >
-                      
+
                       LOG IN
-                      </button>
-                    
+                    </button>
+
                   </div>
                 </form>
                 {errorMessage && <div className="alert alert-danger" role="alertdialog" style={{ color: "red", border: "1px solid red" }}>{errorMessage}</div>}

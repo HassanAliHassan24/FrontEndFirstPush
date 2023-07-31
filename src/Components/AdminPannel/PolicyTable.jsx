@@ -7,6 +7,7 @@ import { Button } from 'antd';
 import { useParams } from 'react-router-dom';
 import AuthContext from '../../Context/AuthProvider';
 import { useContext } from 'react';
+import UpdatePolicy from '../RregistrationForm/UpdatePolicy';
 
 
 
@@ -132,7 +133,9 @@ export default function ProlicyTable() {
                                 </Button>
 
                                 <Button style={{ backgroundColor: "green", color: "white" }} type=''>
-                                    Update
+                                    <UpdatePolicy
+                                        policyId={params.id}
+                                    />
                                 </Button>
 
                             </>

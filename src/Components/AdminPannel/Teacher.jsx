@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { useContext } from 'react'
 import AuthContext from '../../Context/AuthProvider'
-import GISpopup from '../GIS/GISpopup'
 import Sidebar from '../MainInteface/UserInterface/Sidebar'
 import Topbar from '../MainInteface/UserInterface/Topbar'
 import TeacherPopup from './TeacherPopup'
@@ -32,7 +31,7 @@ function Teacher() {
         {userRole === "ROLE_ADMIN" &&(
             <TeacherPopup/>
             )}
-            <GISpopup/>
+            {/* <GISpopup/> */}
 
 
             <div> 
