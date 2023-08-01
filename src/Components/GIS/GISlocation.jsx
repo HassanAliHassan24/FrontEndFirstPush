@@ -1,57 +1,74 @@
 import React, { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
-// import L from 'leaflet';
-import icon from "./constants";
-import { Button } from 'rsuite';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import axios from 'axios';
+import icon from './constants';
 
+// import OrderForm from './OrderForm';
 
 const GISlocation = () => {
-  const markerLocations = [
-    { id: 1, position: [-6.1352373119125785, 39.25387776464775], streetAddress: 'Street 1' },
-    { id: 2, position: [-6.168604089664149, 39.43349247609658], streetAddress: 'Street 2' },
-    { id: 3, position: [-6.306134623534267, 39.27870534490551], streetAddress: 'Street 3' },
-    { id: 4, position: [-6.005836283404984, 39.201911068182945], streetAddress: 'Street 4' },
-    { id: 5, position: [-5.814062099770871, 39.22494078900032], streetAddress: 'Street 5' },
-    { id: 6, position: [-5.7299059526462965, 39.29274577118103], streetAddress: 'Street 6' }
+  const [technician, setTechnicians] = useState([]);
 
-  ];
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  // Custom icon definition
- 
+  const fetchData = async () => {
+    try {
+      const headers = {
+        Authorization: `Basic QWRtaW46QWRtaW4xMjM=`,
+      };
+      const response = await axios.get('http://localhost:9093/api/Teacher/getAll',{headers});
+      const formattedTechnicians = response.data.map(technician => {
+        const [longitude, latitude] = technician.location
+          .replace('SRID=4326;POINT (', '')
+          .replace(')', '')
+          .split(' ');
+        return {
+          ...technician,
+          latitude: parseFloat(latitude),
+          longitude: parseFloat(longitude),
+          position: [parseFloat(longitude), parseFloat(latitude)]
+        }
+      });
+      console.log(response.data)
+      setTechnicians(formattedTechnicians);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div>
-    
-      <MapContainer center={[-6.163, 39.198]} zoom={10} style={{ height: '580px',width:'100%' }}>
-      <span
-        style={{
-          position: "absolute",
-          top: "10px",
-          left: "50px",
-          zIndex: 1000,
-          color:"red",
-          padding: "5px",
-          fontSize: "20px",
-          backgroundColor:"lightblue"
-        }}
-      >
-       Select a Teacher From Your Location
-      </span>
-        <span style={{ index: '3' }}>Select a Teacher From Your Location</span>
-        <TileLayer
-        
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      <div className='row '>
+        <div className='col-md-10 d-flex justify-content-center'>
+          <span
+            style={{
+              position: 'absolute',
+              top: '80px',
+              zIndex: 1000,
+              fontSize: '20px',
+            }}
+          >Select a Technician to work with based on their location: </span>
+        </div>
+        {/* <div className='col-md-2 d-flex justify-content-end'>
+          <Button onClick={hendleBack}>Go Back</Button>
+        </div> */}
+      </div>
+      <MapContainer center={[-6.163, 39.198]} zoom={10} style={{ height: '700px' }}>
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution="Map data © OpenStreetMap contributors"
         />
-
-        {markerLocations.map(marker => (
+        {technician.map((marker) => (
           <Marker key={marker.id} position={marker.position} icon={icon}>
             <Popup>
-              You are here. <br />
-              Street: {marker.streetAddress} <br />
-              Latitude: {marker.position[0]} <br />
-              Longitude: {marker.position[1]}<br />
-              <Button>Make Order</Button>
+              <div className='cellWithImg'>
+                <img className='cellImg' src={marker.techUser.photo} alt="img_error" />
+                hellow, i'm {marker.techUser.first_name} . <br />
+                I live in {marker.techUser.address},<br />
+                the service I provide is {marker.service.service_name},<br />
+                I am here to help you. <br />
+              </div><br />
+              {/* <OrderForm tech_id={marker.id} /> */}
             </Popup>
           </Marker>
         ))}
@@ -61,4 +78,3 @@ const GISlocation = () => {
 };
 
 export default GISlocation;
-// end oflocation

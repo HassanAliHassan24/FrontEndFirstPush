@@ -240,17 +240,19 @@ function TeacherRegistration() {
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-12">
-                    <label for="validationServer03" class="form-label">Location</label>
-                    <input 
-                    
-                    
-                    type="text" class="form-control is-invalid" id="validationServer03" aria-describedby="validationServer03Feedback" required />
-                    <div id="validationServer03Feedback" class="invalid-feedback">
-                        Please provide a valid Location.
-                    </div>
-                </div>
+                {/* <div className="col-md-12">
+                                <FormControl sx={{ m: 0.5, width: '23ch' }} variant="standard">
+                                    <InputLabel htmlFor="standard-adornment-text">
+                                        Enter Location
+                                        {dataLoading && <Spin />}
+                                    </InputLabel>
+                                    <Input id="location" value={location} required="true" onChange={handleLocationChange} />
+                                    <Button onClick={onFinishFetchLocation} icon={<UploadOutlined />}>
+                                        Test Availability
+                                    </Button>
+                                </FormControl>
+                            </div>
+               */}
 
                 {/* <div class="col-md-4">
                     <label for="validationServerUsername" class="form-label">Certificate Type</label>
